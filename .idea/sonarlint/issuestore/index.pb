@@ -311,5 +311,7 @@ Hmovie/src/main/java/com/videostore/movie/controller/MovieController.java,5\c\5
 .env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
 =
 db-backup.sql,d\3\d3378fa35128a81d45b20fc4a0d5f46876d2f393
-G
-docker-all-services.yml,f\8\f816d9a645bd33149f9dd350d3a00696cc12380a
+B
+docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d

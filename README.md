@@ -1,6 +1,6 @@
 # 4all-VideoStoreProject
 
-Utilizando o docker, executar o docker-compose.yml (db-backup.sql e .env tem que estar na mesma pasta), o mesmo vai subir todos os servicos e auto importar o .sql para a base de dados do mysql.
+Utilizando o docker, executar o docker-compose up -d (db-backup.sql e .env tem que estar na mesma pasta), o mesmo vai subir todos os servicos e auto importar o .sql para a base de dados do mysql.
 
 <p>Documentação para os serviços:</p>
 
