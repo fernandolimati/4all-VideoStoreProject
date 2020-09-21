@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+  db-mysql-video-store:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'video_store'
+      MYSQL_USER: 'store'
+      MYSQL_PASSWORD: 'store'
+      MYSQL_ROOT_PASSWORD: 'rootstore'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - ./mysql_volume:/var/lib/mysql
+
