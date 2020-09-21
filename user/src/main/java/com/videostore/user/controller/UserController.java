@@ -38,9 +38,7 @@ public class UserController {
             @ApiResponse(code = 400, message = "Invalid email format"),
             @ApiResponse(code = 404, message = "Not Found user")
     })
-    public ResponseEntity<?> getUsers(
-            @ApiParam(value="User email to find (Optional)", name = "User Email")
-            @RequestParam("emailUser") Optional<String> emailUser){
+    public ResponseEntity<?> getUsers(@ApiParam(value="User email to find (Optional)", name = "User Email") @RequestParam("emailUser") Optional<String> emailUser){
 
         if(!emailUser.isEmpty()){
             if(!EmailValidator.getInstance().isValid(emailUser.get())) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -53,9 +51,6 @@ public class UserController {
         return new ResponseEntity<>(users,HttpStatus.OK);
 
     }
-
-
-
 
 
     @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
