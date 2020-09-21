@@ -2,17 +2,15 @@ version: '3.3'
 
 services:
   db-mysql-video-store:
-    image: mysql:5.7
+    image: ${MYSQL_IMAGE}
     restart: always
     environment:
-      MYSQL_DATABASE: 'video_store'
-      MYSQL_USER: 'store'
-      MYSQL_PASSWORD: 'store'
-      MYSQL_ROOT_PASSWORD: 'rootstore'
+      MYSQL_DATABASE: ${USER_SERVICE_MYSQL_DB}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - '3306:3306'
+      - ${MYSQL_PORT}:${MYSQL_PORT}
     expose:
-      - '3306'
+      - ${MYSQL_PORT}
     volumes:
-      - ./mysql_volume:/var/lib/mysql
-
+      - ./docker_volume/db:/var/lib/mysql

@@ -1,0 +1,55 @@
+version: '3.3'
+
+services:
+  db-mysql:
+    image: ${MYSQL_IMAGE}
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${USER_SERVICE_MYSQL_DB}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - ${MYSQL_PORT}:${MYSQL_PORT}
+    networks:
+      vpcbr:
+        ipv4_address: ${MYSQL_IP}
+    expose:
+      - ${MYSQL_PORT}
+    volumes:
+      - ./docker_volume/db:/var/lib/mysql
+
+
+
+
+  user-service:
+    image: ${USER_SERVICE_IMAGE}
+    restart: always
+    environment:
+      PORT: ${USER_SERVICE_PORT}
+      TZ: ${TZ}
+      SWAGGER_HOST: ${SWAGGER_HOST}
+      MYSQL_IP: ${MYSQL_IP}
+      MYSQL_PORT: ${MYSQL_PORT}
+      MYSQL_DB: ${USER_SERVICE_MYSQL_DB}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - ${USER_SERVICE_PORT}:${USER_SERVICE_PORT}
+    networks:
+      vpcbr:
+        ipv4_address: ${USER_SERVICE_CONTAINER_IP}
+    expose:
+      - ${USER_SERVICE_PORT}
+
+
+
+
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
+

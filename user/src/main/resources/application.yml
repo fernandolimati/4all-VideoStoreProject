@@ -1,0 +1,21 @@
+server:
+  port: ${PORT:7001}
+  servlet:
+    context-path: /user
+
+spring:
+  application:
+    name: user-service
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  datasource:
+    url: jdbc:mysql://${MYSQL_IP:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB:service-user}?createDatabaseIfNotExist=true
+    username: ${MYSQL_USER:storeuser}
+    password: ${MYSQL_PASSWORD:storepassword}
+    hikari:
+      max-lifetime: 300000
