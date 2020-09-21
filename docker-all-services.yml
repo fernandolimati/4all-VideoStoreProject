@@ -15,7 +15,7 @@ services:
     expose:
       - ${MYSQL_PORT}
     volumes:
-      - ./docker_volume/db:/var/lib/mysql
+      - ./db-backup.sql:/docker-entrypoint-initdb.d/db-backup.sql
 
 
 
