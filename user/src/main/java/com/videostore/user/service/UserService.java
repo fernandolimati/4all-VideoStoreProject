@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
  * @date 21/09/2020
  **/
 
-@Slf4j
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserService {

@@ -23,7 +23,6 @@ import java.util.Optional;
  **/
 
 @RestController
-@Slf4j
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Api(tags = "User Service", description = "Version 1.0")
 public class UserController {
@@ -40,7 +39,7 @@ public class UserController {
             @ApiResponse(code = 404, message = "Not Found user")
     })
     public ResponseEntity<?> getUsers(
-            @ApiParam(value="User email to find", name = "User Email")
+            @ApiParam(value="User email to find (Optional)", name = "User Email")
             @RequestParam("emailUser") Optional<String> emailUser){
 
         if(!emailUser.isEmpty()){

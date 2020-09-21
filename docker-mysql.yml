@@ -5,9 +5,7 @@ services:
     image: ${MYSQL_IMAGE}
     restart: always
     environment:
-      MYSQL_DATABASE: ${USER_SERVICE_MYSQL_DB}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - ${MYSQL_PORT}:${MYSQL_PORT}
     expose:

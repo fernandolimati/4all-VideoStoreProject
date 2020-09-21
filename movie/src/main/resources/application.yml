@@ -1,0 +1,21 @@
+server:
+  port: ${PORT:7002}
+  servlet:
+    context-path: /movie
+
+spring:
+  application:
+    name: movie-service
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  datasource:
+    url: jdbc:mysql://${MYSQL_IP:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB:service-movie}
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:storerootpassword}
+    hikari:
+      max-lifetime: 300000
